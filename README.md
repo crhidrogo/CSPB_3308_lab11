@@ -46,7 +46,7 @@ next.addEventListener('click', nextChallenge)
 Move the code in the keypress listener that sets up the next challenge into a new function called "nextChallenge". The game should show "You Win!" and a new button when you complete the challenge. Clicking the button should start the next challenge.
 
 ## Add a timer mechanism
-In `javascript Date.now()` returns a timestamp in milliseconds. To start timing, record the timestamp with a variable:
+In javascript `Date.now()` returns a timestamp in milliseconds. To start timing, record the timestamp with a variable:
 
 `start = Date.now()`
 To stop timing, get a second timestamp and report the difference:
