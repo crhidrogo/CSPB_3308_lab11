@@ -62,9 +62,10 @@ Think about where these lines should go in your typing.js. Make sure timing work
 ## Make one more improvement to the game of your choice.
 It can be any improvement you like, but should be enough work to show me that you can make substantive changes to the game. Some suggestions:
 
--Detect and highlight user's typos
--A leaderboard for fastest finishes
--Add random challenges using `Math.random()`
--unique css style changes for each challenge
--Improve html document structure so it's not random h3s and ps in the body
+- Detect and highlight user's typos
+- A leaderboard for fastest finishes
+- Add random challenges using `Math.random()`
+- unique css style changes for each challenge
+- Improve html document structure so it's not random h3s and ps in the body
+
 Add comments to your files showing where your improvement is and what it does.
