@@ -6,8 +6,8 @@ const goalString = ["lad fad sad dad",
   "True! --nervous --very, very dreadfully nervous I had been and am; but why will you say that I am mad?",
   "Grow old along with me! The best is yet to be, the last of life, for which the first was made. Our times are in his hand who saith, 'A whole I planned, youth shows but half; Trust God: See all, nor be afraid!"];
 
-var i = 0;
-let flag = false; // flag for existance of Next button
+let i = 0;
+let flag = false; // flag for existence of Next button
 
 window.addEventListener("keypress", function (event) {
   const textbox = document.getElementById("userinput");
@@ -20,7 +20,7 @@ window.addEventListener("keypress", function (event) {
 
     //create Next button (if it doesn't already exist)
     if (!flag) {
-      next = document.createElement('button');
+      let next = document.createElement('button');
       flag = true;
       next.textContent = "Next";
       next.addEventListener('click', nextChallenge);
@@ -39,19 +39,19 @@ function restart() {
   // In here set i=0
   i = 0;
   // find the level, result, and goal elements and reset their textContent
-  lvl = document.getElementById("level");
+  let lvl = document.getElementById("level");
   lvl.textContent = difficulties[i];
-  goal = document.getElementById("goal");
+  let goal = document.getElementById("goal");
   goal.textContent = goalString[i];
   result.textContent = "Type the Following text:";
-  textbox = document.getElementById("userinput");
-  textbox.textContent = ""; // after reset when user enters space, entire string is set to ""??
+  let textbox = document.getElementById("userinput");
+  textbox.textContent = ""; // after reset when user enters space, entire string is set to ""
   document.body.removeChild(next);
   flag = false;
 
   // timer
   if (typeof start != 'undefined'){
-    start = 0;
+    let start = 0;
     document.body.removeChild(timing);
   }
 }
@@ -69,11 +69,16 @@ function nextChallenge (){
 
   //timer
   if (typeof start != 'undefined') {
-    end = Date.now();
-    diff = (end - start)/1000;
-    timing = document.createElement('p');
+    let end = Date.now();
+    let diff = (end - start)/1000;
+
+    let pIncrement = 0;
+    let timing = document.createElement('p');
+    timing.id = `time${pIncrement}`;
+    pIncrement = pIncrement + 1;
     timing.textContent = diff;
-    document.body.appendChild(timing);
+    //let timing = document.createTextNode(diff);
+    document.getElementById("timers").appendChild(timing);
   }
   
 }
