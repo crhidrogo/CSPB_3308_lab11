@@ -46,13 +46,14 @@ function restart() {
   result.textContent = "Type the Following text:";
   let textbox = document.getElementById("userinput");
   textbox.textContent = ""; // after reset when user enters space, entire string is set to ""
-  document.body.removeChild(next);
   flag = false;
+  document.getElementById("timers").innerHTML = "";
+  document.body.removeChild(next);
+
 
   // timer
   if (typeof start != 'undefined'){
-    let start = 0;
-    document.body.removeChild(timing);
+    start = 0;
   }
 }
 
