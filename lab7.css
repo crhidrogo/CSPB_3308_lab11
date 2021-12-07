@@ -1,3 +1,11 @@
 #userinput {
   background-color : indianred;
 }
+
+.goodtime {
+  color: green;
+}
+
+.badtime {
+  color: red;
+}
