@@ -47,9 +47,9 @@ function restart() {
   result.textContent = "Type the Following text:";
   let textbox = document.getElementById("userinput");
   textbox.textContent = ""; // after reset when user enters space, entire string is set to ""
-  flag = false;
+  //flag = false;
   document.getElementById("timers").innerHTML = "";
-  //document.body.removeChild(next);
+  document.body.removeChild(next);
 
 
   // timer
@@ -77,7 +77,18 @@ function nextChallenge (){
     timing.id = `time${pIncrement}`;
     pIncrement = pIncrement + 1;
     timing.textContent = diff;
-    //let timing = document.createTextNode(diff);
+
+    // change color of pElements based on time. Green for less than 5 seconds and Red for more.
+    let previous_diff = document.getElementById(`time${pIncrement-1}`);
+    let challenge_diff = diff - previous_diff;
+
+    // change color if less than 5 seconds of difference
+    if (challenge_diff < 5) {
+      timing.setAttribute("class", "goodtime");
+    } else {
+      timing.setAttribute("class", "badtime");
+    }
+
     document.getElementById("timers").appendChild(timing);
   }
   
