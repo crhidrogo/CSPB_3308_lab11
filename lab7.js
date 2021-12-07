@@ -13,12 +13,13 @@ window.addEventListener("keypress", function (event) {
   const textbox = document.getElementById("userinput");
   textbox.textContent = textbox.textContent + event.key;
   
-  if (textbox.textContent == goalString[i]) {
+  if (textbox.textContent === goalString[i]) {
     const result = document.getElementById("result");
     result.textContent = "You Win!";
     textbox.textContent = "";
 
     //create Next button (if it doesn't already exist)
+    // TODO if on last challenge, next should loop to beginning
     if (!flag) {
       let next = document.createElement('button');
       flag = true;
@@ -36,7 +37,7 @@ restartButton = document.querySelector("#restartButton");
 restartButton.addEventListener('click', restart);
 
 function restart() {
-  // In here set i=0
+  // In here set challenge to beginning with i=0
   i = 0;
   // find the level, result, and goal elements and reset their textContent
   let lvl = document.getElementById("level");
@@ -48,7 +49,7 @@ function restart() {
   textbox.textContent = ""; // after reset when user enters space, entire string is set to ""
   flag = false;
   document.getElementById("timers").innerHTML = "";
-  document.body.removeChild(next);
+  //document.body.removeChild(next);
 
 
   // timer
@@ -72,8 +73,6 @@ function nextChallenge (){
   if (typeof start != 'undefined') {
     let end = Date.now();
     let diff = (end - start)/1000;
-
-    let pIncrement = 0;
     let timing = document.createElement('p');
     timing.id = `time${pIncrement}`;
     pIncrement = pIncrement + 1;
@@ -85,6 +84,7 @@ function nextChallenge (){
 }
 
 // create timer functionality
+let pIncrement = 0;
 timerButton = document.querySelector("#timerButton")
 timerButton.addEventListener('click', function(){
   start = Date.now();
